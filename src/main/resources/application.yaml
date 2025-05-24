@@ -1,0 +1,6 @@
+task:
+  async-response-timeout: 10000
+  lock-duration: 1000
+  subscribe-topic:
+  url-rest-engine: http://localhost:8080/engine-rest
+  worker-id:
