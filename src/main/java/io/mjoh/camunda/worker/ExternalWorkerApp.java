@@ -2,6 +2,7 @@ package io.mjoh.camunda.worker;
 
 import io.mjoh.camunda.handler.ExternalTaskHandler;
 import io.mjoh.camunda.configuration.ExternalTaskProperties;
+import jakarta.annotation.PostConstruct;
 import org.camunda.bpm.client.ExternalTaskClient;
 import org.camunda.bpm.client.task.ExternalTask;
 import org.camunda.bpm.client.task.ExternalTaskService;
@@ -22,8 +23,8 @@ public class ExternalWorkerApp {
         this.externalTaskProperties = externalTaskProperties;
     }
 
-    public void handleTask(ExternalTask externalTask, ExternalTaskService externalTaskService) {
-
+    @PostConstruct
+    public void init() {
         externalTaskClient.subscribe(externalTaskProperties.subscribeTopic())
                 .lockDuration(externalTaskProperties.lockDuration())
                 .handler(new ExternalTaskHandler())

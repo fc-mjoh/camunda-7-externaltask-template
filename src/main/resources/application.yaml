@@ -1,6 +1,9 @@
+server:
+  port: 8081
+
 task:
   async-response-timeout: 10000
   lock-duration: 1000
-  subscribe-topic:
+  subscribe-topic: test
   url-rest-engine: http://localhost:8080/engine-rest
   worker-id:
